@@ -1,73 +1,136 @@
 import 'dart:convert';
 
+import 'package:cryptography/cryptography.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
-/// Content packs: JSON files bundled in the app (works from first install)
-/// that can be replaced by newer versions downloaded while online.
-/// Downloaded packs are stored with shared_preferences, so the same code
-/// works on Android, iPhone and the web.
+/// Content = first aid, library and notices.
 ///
-/// Hosted manifest format (manifest.json):
-/// {
-///   "packs": [
-///     {"id": "first_aid", "version": 2, "url": "https://example.com/first_aid.json"},
-///     {"id": "library",   "version": 2, "url": "https://example.com/library.json"}
-///   ]
-/// }
+/// It ships inside the app as a signed file (assets/content/bundle.safepath).
+/// A newer signed file can arrive two ways, with the same checks for both:
+///   1. downloaded when online from [updateUrl], or
+///   2. imported from a file shared by another phone (AirDrop, Bluetooth...).
+///
+/// A content file is accepted only if it carries a valid signature from the
+/// SafePath publisher key ([publicKeyB64]), checked offline, and is newer
+/// than what the phone already has.
 class ContentService {
-  /// TODO: put the public link of your hosted manifest.json here
-  /// (GitHub Pages, any web host, or a raw GitHub file).
-  static const String manifestUrl = '';
+  /// Where the newest signed content file is published when online.
+  static const String updateUrl =
+      'https://dawoudlive.github.io/Safepath/packs/latest.safepath';
 
-  /// Version of the packs that ship inside the app.
-  static const int bundledVersion = 1;
+  /// Publisher public key (Ed25519, base64). Only content signed by the
+  /// matching private key is accepted.
+  static const String publicKeyB64 = 's8WIJSsi/3uEx9Kwdh65rP3fMGBrHHB75YJMgCgvnMc=';
 
-  static Future<void> init() async {}
+  static const String _prefsKey = 'envelope_v1';
 
-  /// Load a pack: downloaded copy if present and valid, else the bundled one.
-  static Future<dynamic> load(String id) async {
+  static Map<String, dynamic> _packs = {};
+  static int _seq = 0;
+  static String _envelopeText = '';
+
+  /// Changes every time new content is installed, so screens can refresh.
+  static final ValueNotifier<int> revision = ValueNotifier<int>(0);
+
+  static int get seq => _seq;
+  static String get envelopeText => _envelopeText;
+
+  static Future<void> init() async {
+    final bundle = await rootBundle.loadString('assets/content/bundle.safepath');
+    var chosen = bundle;
+    var chosenSeq = _seqOf(bundle);
+
     try {
       final prefs = await SharedPreferences.getInstance();
-      final saved = prefs.getString('packdata_$id');
-      if (saved != null) return jsonDecode(saved);
+      final saved = prefs.getString(_prefsKey);
+      if (saved != null) {
+        final savedSeq = _seqOf(saved);
+        if (savedSeq > chosenSeq && await _verify(saved)) {
+          chosen = saved;
+          chosenSeq = savedSeq;
+        }
+      }
     } catch (_) {
-      // corrupted or unavailable - fall back to the bundled copy
+      // fall back to the bundled content
     }
-    return jsonDecode(await rootBundle.loadString('assets/content/$id.json'));
+
+    _apply(chosen);
   }
 
-  static Future<int> installedVersion(String id) async {
-    final p = await SharedPreferences.getInstance();
-    return p.getInt('pack_$id') ?? bundledVersion;
+  static int _seqOf(String text) {
+    try {
+      return ((jsonDecode(text) as Map)['seq'] as num).toInt();
+    } catch (_) {
+      return 0;
+    }
   }
 
-  /// Returns a result code. Throws on network problems.
-  static Future<String> checkAndUpdate() async {
-    if (manifestUrl.isEmpty) return 'not_configured';
+  static void _apply(String text) {
+    final env = jsonDecode(text) as Map;
+    _packs = jsonDecode(env['payload'] as String) as Map<String, dynamic>;
+    _seq = (env['seq'] as num).toInt();
+    _envelopeText = text;
+    revision.value++;
+  }
+
+  /// A pack by id: 'first_aid', 'library' or 'alerts'.
+  static Future<dynamic> load(String id) async => _packs[id];
+
+  static dynamic pack(String id) => _packs[id];
+
+  static DateTime get contentDate =>
+      DateTime.fromMillisecondsSinceEpoch(_seq * 1000, isUtc: true);
+
+  static Future<bool> _verify(String text) async {
+    try {
+      final env = jsonDecode(text) as Map;
+      if (env['format'] != 'safepath-pack-v1') return false;
+      final pub = SimplePublicKey(base64Decode(publicKeyB64),
+          type: KeyPairType.ed25519);
+      final sig = Signature(base64Decode(env['sig'] as String), publicKey: pub);
+      final message = utf8.encode('${env['seq']}\n${env['payload']}');
+      return await Ed25519().verify(message, signature: sig);
+    } catch (_) {
+      return false;
+    }
+  }
+
+  /// Result codes: ok, same_or_older, bad_signature, invalid.
+  static Future<String> importText(String text) async {
+    Map env;
+    try {
+      env = jsonDecode(text) as Map;
+      if (env['format'] != 'safepath-pack-v1' ||
+          env['payload'] is! String ||
+          env['sig'] is! String ||
+          env['seq'] is! num) {
+        return 'invalid';
+      }
+    } catch (_) {
+      return 'invalid';
+    }
+    if (!await _verify(text)) return 'bad_signature';
+    final newSeq = (env['seq'] as num).toInt();
+    if (newSeq <= _seq) return 'same_or_older';
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString(_prefsKey, text);
+    } catch (_) {
+      return 'invalid';
+    }
+    _apply(text);
+    return 'ok';
+  }
+
+  /// Download the newest published content when online.
+  /// Throws on network problems.
+  static Future<String> checkOnline() async {
     final res = await http
-        .get(Uri.parse(manifestUrl))
-        .timeout(const Duration(seconds: 15));
-    if (res.statusCode != 200) throw Exception('Server error ${res.statusCode}');
-    final manifest = jsonDecode(utf8.decode(res.bodyBytes)) as Map;
-    final packs = (manifest['packs'] as List?) ?? const [];
-    final prefs = await SharedPreferences.getInstance();
-    var updated = 0;
-    for (final raw in packs) {
-      final pack = raw as Map;
-      final id = pack['id'].toString();
-      final version = (pack['version'] as num).toInt();
-      final url = pack['url'].toString();
-      if (version <= await installedVersion(id)) continue;
-      final r = await http.get(Uri.parse(url)).timeout(const Duration(seconds: 30));
-      if (r.statusCode != 200) continue;
-      final text = utf8.decode(r.bodyBytes);
-      jsonDecode(text); // validate before saving
-      await prefs.setString('packdata_$id', text);
-      await prefs.setInt('pack_$id', version);
-      updated++;
-    }
-    return updated == 0 ? 'up_to_date' : 'updated:$updated';
+        .get(Uri.parse(updateUrl))
+        .timeout(const Duration(seconds: 20));
+    if (res.statusCode != 200) return 'no_file';
+    return importText(utf8.decode(res.bodyBytes));
   }
 }

@@ -1,0 +1,24 @@
+SAFEPATH PUBLISHER - READ ME FIRST
+
+What is this?
+  A tool to write notices and sign content updates for the SafePath app.
+  It works with NO internet. Just open SafePath-Publisher.html in Chrome, Edge or Safari.
+
+The key file (safepath-private-key.json)
+  This file proves that an update really comes from you.
+  - Keep it on a USB stick and a backup copy. If you lose it you cannot publish updates.
+  - NEVER upload it to GitHub. NEVER send it to anyone. Anyone who has it can publish fake updates.
+  - This key was made for testing. Before a public launch, make a new key
+    (button "Create a new key") and ask for the app to be rebuilt with the new public key.
+
+How to publish an update
+  1. Open SafePath-Publisher.html.
+  2. Step 1: click "Load key file" and choose safepath-private-key.json.
+  3. Step 2: add a notice (English + Arabic), or open the latest .safepath file first if you have one.
+  4. Step 3: click "Sign and download". You get a file like safepath-1794163605.safepath.
+  5. Send that file to people by AirDrop / Bluetooth / any app.
+     They open SafePath > Updates > Import content file.
+  6. When you have internet: upload the same file to GitHub as web/packs/latest.safepath
+     (Add file > Upload files). Everyone with internet then receives it by tapping Updates > Check online.
+
+Tip: always open your NEWEST .safepath file in Step 2 before adding notices, so you keep earlier notices.
