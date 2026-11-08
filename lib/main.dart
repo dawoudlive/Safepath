@@ -15,7 +15,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await loadLanguage();
   await ContentService.init();
-  await TileCache.init();
+  await initTileCache();
   runApp(const SafePathApp());
 }
 

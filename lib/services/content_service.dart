@@ -1,13 +1,13 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:http/http.dart' as http;
-import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Content packs: JSON files bundled in the app (works from first install)
 /// that can be replaced by newer versions downloaded while online.
+/// Downloaded packs are stored with shared_preferences, so the same code
+/// works on Android, iPhone and the web.
 ///
 /// Hosted manifest format (manifest.json):
 /// {
@@ -24,23 +24,16 @@ class ContentService {
   /// Version of the packs that ship inside the app.
   static const int bundledVersion = 1;
 
-  static late Directory _dir;
-
-  static Future<void> init() async {
-    final base = await getApplicationSupportDirectory();
-    _dir = Directory('${base.path}/packs');
-    await _dir.create(recursive: true);
-  }
+  static Future<void> init() async {}
 
   /// Load a pack: downloaded copy if present and valid, else the bundled one.
   static Future<dynamic> load(String id) async {
-    final f = File('${_dir.path}/$id.json');
-    if (await f.exists()) {
-      try {
-        return jsonDecode(await f.readAsString());
-      } catch (_) {
-        // corrupted download - fall back to bundled copy
-      }
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final saved = prefs.getString('packdata_$id');
+      if (saved != null) return jsonDecode(saved);
+    } catch (_) {
+      // corrupted or unavailable - fall back to the bundled copy
     }
     return jsonDecode(await rootBundle.loadString('assets/content/$id.json'));
   }
@@ -50,7 +43,7 @@ class ContentService {
     return p.getInt('pack_$id') ?? bundledVersion;
   }
 
-  /// Returns a human-readable result. Throws on network problems.
+  /// Returns a result code. Throws on network problems.
   static Future<String> checkAndUpdate() async {
     if (manifestUrl.isEmpty) return 'not_configured';
     final res = await http
@@ -71,7 +64,7 @@ class ContentService {
       if (r.statusCode != 200) continue;
       final text = utf8.decode(r.bodyBytes);
       jsonDecode(text); // validate before saving
-      await File('${_dir.path}/$id.json').writeAsString(text);
+      await prefs.setString('packdata_$id', text);
       await prefs.setInt('pack_$id', version);
       updated++;
     }

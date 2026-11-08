@@ -15,7 +15,7 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   final MapController _controller = MapController();
-  final CachedTileProvider _provider = CachedTileProvider();
+  final TileProvider _provider = createTileProvider();
   LatLng? _me;
   String? _error;
 
