@@ -1,5 +1,8 @@
+"""Adds permissions and url_launcher queries to the generated AndroidManifest.xml.
+
+Run after `flutter create . --platforms=android`.
+"""
 import pathlib
-import re
 import sys
 
 path = pathlib.Path("android/app/src/main/AndroidManifest.xml")
@@ -24,6 +27,9 @@ marker = "<application"
 if marker not in text:
     sys.exit("could not find <application in manifest")
 text = text.replace(marker, perms + queries + "    " + marker, 1)
+
+# Friendly app name on the phone home screen
+import re
 text = re.sub(r'android:label="[^"]*"', 'android:label="SafePath"', text, count=1)
 
 path.write_text(text, encoding="utf-8")

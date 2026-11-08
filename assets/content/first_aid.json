@@ -1,0 +1,287 @@
+{
+  "version": 1,
+  "disclaimer": {
+    "en": "Basic first aid guidance only. It does not replace training or a doctor. In an emergency call local emergency services first.",
+    "ar": "إرشادات إسعاف أولي أساسية فقط، ولا تغني عن التدريب أو الطبيب. في الحالات الطارئة اتصل بالإسعاف أولاً."
+  },
+  "topics": [
+    {
+      "id": "bleeding",
+      "icon": "bleeding",
+      "urgent": true,
+      "title": { "en": "Severe bleeding", "ar": "نزيف شديد" },
+      "steps": {
+        "en": [
+          "Call or send someone to call emergency services.",
+          "Press firmly and directly on the wound with a clean cloth or your hand.",
+          "Do not remove the cloth if it soaks through. Add more cloth on top and keep pressing.",
+          "Keep the person lying down and warm. Raise the injured limb if you do not suspect a broken bone.",
+          "If a limb is bleeding heavily and pressure does not stop it, apply a tourniquet 5 to 7 cm above the wound (not over a joint). Tighten until the bleeding stops and write down the time.",
+          "Stay with the person until help arrives."
+        ],
+        "ar": [
+          "اتصل بالإسعاف أو اطلب من شخص آخر الاتصال.",
+          "اضغط بقوة ومباشرة على الجرح بقطعة قماش نظيفة أو بيدك.",
+          "إذا تشبعت القماشة بالدم لا تزلها، بل ضع قماشة أخرى فوقها واستمر بالضغط.",
+          "أبقِ المصاب مستلقياً ودافئاً. ارفع الطرف المصاب إذا لم تشك بوجود كسر.",
+          "إذا كان النزيف شديداً في أحد الأطراف ولم يتوقف بالضغط، ضع رباطاً ضاغطاً (تورنيكيه) فوق الجرح بـ 5 إلى 7 سم وليس على المفصل. شدّه حتى يتوقف النزيف وسجّل الوقت.",
+          "ابقَ مع المصاب حتى وصول المساعدة."
+        ]
+      },
+      "warning": {
+        "en": "A tourniquet is a last resort for limb bleeding that will not stop. Do not loosen it; leave that to medical staff.",
+        "ar": "الرباط الضاغط خيار أخير لنزيف الأطراف الذي لا يتوقف. لا تفكّه، اترك ذلك للطاقم الطبي."
+      }
+    },
+    {
+      "id": "cpr",
+      "icon": "cpr",
+      "urgent": true,
+      "title": { "en": "Not breathing - CPR (adult)", "ar": "توقف التنفس - الإنعاش القلبي الرئوي (بالغ)" },
+      "steps": {
+        "en": [
+          "Check the scene is safe. Tap the shoulders and shout. If no response and not breathing normally, act now.",
+          "Call emergency services (or send someone) and ask for an AED (defibrillator) if one is nearby.",
+          "Lay the person on their back on a firm surface.",
+          "Place the heel of one hand on the centre of the chest, other hand on top, arms straight.",
+          "Push hard and fast: about 5 to 6 cm deep, 100 to 120 pushes per minute. Let the chest rise fully between pushes.",
+          "If you are trained: give 2 rescue breaths after every 30 pushes. If not, keep doing pushes only.",
+          "When an AED arrives, switch it on and follow its voice instructions.",
+          "Continue until help takes over, the person starts breathing, or you cannot continue."
+        ],
+        "ar": [
+          "تأكد أن المكان آمن. اهزّ الكتفين وناده. إذا لم يستجب ولا يتنفس بشكل طبيعي تحرك فوراً.",
+          "اتصل بالإسعاف (أو اطلب من شخص الاتصال) واطلب جهاز الصدمات (AED) إن وُجد قريباً.",
+          "ضع المصاب على ظهره فوق سطح صلب.",
+          "ضع كعب إحدى يديك في منتصف الصدر واليد الأخرى فوقها والذراعان مستقيمتان.",
+          "اضغط بقوة وسرعة: بعمق 5 إلى 6 سم تقريباً وبمعدل 100 إلى 120 ضغطة في الدقيقة. دع الصدر يرتفع كاملاً بين الضغطات.",
+          "إذا كنت مدرباً: أعطِ نفسين إنقاذيين بعد كل 30 ضغطة. وإلا استمر بالضغطات فقط.",
+          "عند وصول جهاز AED شغّله واتبع التعليمات الصوتية.",
+          "استمر حتى تصل المساعدة أو يبدأ المصاب بالتنفس أو لا تستطيع المتابعة."
+        ]
+      },
+      "warning": {
+        "en": "Children and babies need a different technique. Get trained if you can.",
+        "ar": "الأطفال والرضع يحتاجون أسلوباً مختلفاً. احرص على التدرب إن استطعت."
+      }
+    },
+    {
+      "id": "choking",
+      "icon": "choking",
+      "urgent": true,
+      "title": { "en": "Choking (adult, awake)", "ar": "اختناق (بالغ واعٍ)" },
+      "steps": {
+        "en": [
+          "Ask: \"Are you choking?\" If they can cough, encourage them to keep coughing.",
+          "If they cannot speak, cough or breathe: lean them forward and give up to 5 firm back blows between the shoulder blades.",
+          "If that fails: stand behind them, wrap your arms around the waist, make a fist above the belly button and pull sharply inward and upward, up to 5 times.",
+          "Alternate 5 back blows and 5 abdominal thrusts until the object comes out.",
+          "Call emergency services if it does not clear quickly.",
+          "If the person becomes unconscious, lay them down and start CPR."
+        ],
+        "ar": [
+          "اسأله: \"هل تختنق؟\" إذا كان يستطيع السعال شجّعه على الاستمرار.",
+          "إذا لم يستطع الكلام أو السعال أو التنفس: أمِله للأمام وأعطه حتى 5 ضربات قوية على الظهر بين لوحي الكتف.",
+          "إذا لم تنجح: قف خلفه ولف ذراعيك حول خصره، اجعل قبضتك فوق السرة واسحب بقوة للداخل ولأعلى حتى 5 مرات.",
+          "بدّل بين 5 ضربات على الظهر و5 ضغطات على البطن حتى يخرج الجسم العالق.",
+          "اتصل بالإسعاف إذا لم ينفرج الاختناق بسرعة.",
+          "إذا فقد الوعي ضعه على ظهره وابدأ الإنعاش القلبي الرئوي."
+        ]
+      },
+      "warning": {
+        "en": "Babies and pregnant women need modified techniques.",
+        "ar": "الرضع والحوامل يحتاجون أساليب مختلفة."
+      }
+    },
+    {
+      "id": "burns",
+      "icon": "burn",
+      "urgent": false,
+      "title": { "en": "Burns", "ar": "الحروق" },
+      "steps": {
+        "en": [
+          "Move away from the heat source. Remove rings, watches and tight clothing near the burn unless stuck to the skin.",
+          "Cool the burn under cool (not ice-cold) running water for 20 minutes.",
+          "Do not use ice, butter, toothpaste or creams.",
+          "Cover loosely with clean cling film or a clean non-fluffy cloth.",
+          "Do not pop blisters.",
+          "Get medical help for burns that are large, deep, on the face, hands, feet or genitals, or caused by chemicals or electricity."
+        ],
+        "ar": [
+          "ابتعد عن مصدر الحرارة. انزع الخواتم والساعات والملابس الضيقة قرب الحرق إلا إذا التصقت بالجلد.",
+          "برّد الحرق بماء جارٍ بارد (ليس مثلجاً) لمدة 20 دقيقة.",
+          "لا تستخدم الثلج أو الزبدة أو معجون الأسنان أو الكريمات.",
+          "غطِّ الحرق بشكل فضفاض بغلاف بلاستيكي نظيف أو قماش نظيف غير ليفي.",
+          "لا تفقأ الفقاعات.",
+          "اطلب مساعدة طبية للحروق الكبيرة أو العميقة أو في الوجه أو اليدين أو القدمين أو الأعضاء التناسلية أو الناتجة عن مواد كيميائية أو كهرباء."
+        ]
+      },
+      "warning": {
+        "en": "Chemical burns: rinse with plenty of water for at least 20 minutes and remove contaminated clothing.",
+        "ar": "الحروق الكيميائية: اغسل بكمية كبيرة من الماء لمدة 20 دقيقة على الأقل وانزع الملابس الملوثة."
+      }
+    },
+    {
+      "id": "fracture",
+      "icon": "fracture",
+      "urgent": false,
+      "title": { "en": "Broken bone or sprain", "ar": "كسر أو التواء" },
+      "steps": {
+        "en": [
+          "Do not move the person unless they are in danger.",
+          "Keep the injured part still in the position you found it. Do not try to straighten it.",
+          "Support it with padding or a sling, and immobilise the joints above and below if possible.",
+          "Control any bleeding by pressing around (not on) a protruding bone.",
+          "Apply a cold pack wrapped in cloth for up to 20 minutes.",
+          "Get medical help. Check circulation: numb, pale or cold fingers/toes are a warning sign."
+        ],
+        "ar": [
+          "لا تحرّك المصاب إلا إذا كان في خطر.",
+          "أبقِ الجزء المصاب ثابتاً بالوضع الذي وجدته عليه ولا تحاول تعديله.",
+          "ادعمه بحشوة أو حمّالة وثبّت المفصلين فوقه وتحته إن أمكن.",
+          "أوقف أي نزيف بالضغط حول العظم البارز وليس عليه.",
+          "ضع كمادة باردة ملفوفة بقماش لمدة تصل إلى 20 دقيقة.",
+          "اطلب مساعدة طبية. افحص الدورة الدموية: تنميل أو شحوب أو برودة الأصابع علامة تحذير."
+        ]
+      },
+      "warning": {
+        "en": "Suspected neck, back or head injury: do not move the person. Call emergency services.",
+        "ar": "اشتباه إصابة في الرقبة أو الظهر أو الرأس: لا تحرّك المصاب واتصل بالإسعاف."
+      }
+    },
+    {
+      "id": "heat",
+      "icon": "heat",
+      "urgent": true,
+      "title": { "en": "Heat stroke", "ar": "ضربة الشمس" },
+      "steps": {
+        "en": [
+          "Signs: very high body temperature, confusion, headache, fast pulse, hot skin, possibly fainting.",
+          "Call emergency services.",
+          "Move the person to shade or a cool place. Remove extra clothing.",
+          "Cool them quickly: wet the skin, fan them, put cold packs on neck, armpits and groin.",
+          "If fully awake, give small sips of cool water.",
+          "Keep cooling until help arrives."
+        ],
+        "ar": [
+          "العلامات: حرارة جسم مرتفعة جداً، تشوش، صداع، نبض سريع، جلد ساخن، وقد يحدث إغماء.",
+          "اتصل بالإسعاف.",
+          "انقل المصاب إلى الظل أو مكان بارد وانزع الملابس الزائدة.",
+          "برّده بسرعة: بلّل الجلد وحرّك الهواء بمروحة وضع كمادات باردة على الرقبة والإبط والفخذ.",
+          "إذا كان واعياً تماماً أعطه رشفات صغيرة من الماء البارد.",
+          "استمر بالتبريد حتى وصول المساعدة."
+        ]
+      },
+      "warning": {
+        "en": "Never give drinks to someone who is not fully awake.",
+        "ar": "لا تعطِ سوائل لشخص غير واعٍ تماماً."
+      }
+    },
+    {
+      "id": "shock",
+      "icon": "shock",
+      "urgent": true,
+      "title": { "en": "Shock (after injury or blood loss)", "ar": "صدمة (بعد إصابة أو فقدان دم)" },
+      "steps": {
+        "en": [
+          "Signs: pale, cold and clammy skin, fast weak pulse, fast breathing, dizziness, confusion.",
+          "Call emergency services.",
+          "Treat the cause, for example stop bleeding.",
+          "Lay the person down. If there is no leg, spine or head injury, raise the legs about 30 cm.",
+          "Loosen tight clothing and keep them warm with a coat or blanket.",
+          "Give nothing to eat or drink. Monitor breathing until help arrives."
+        ],
+        "ar": [
+          "العلامات: جلد شاحب بارد ورطب، نبض سريع ضعيف، تنفس سريع، دوخة، تشوش.",
+          "اتصل بالإسعاف.",
+          "عالج السبب، مثلاً أوقف النزيف.",
+          "أضجع المصاب. إذا لم تكن هناك إصابة في الساق أو العمود الفقري أو الرأس فارفع الساقين نحو 30 سم.",
+          "فُكّ الملابس الضيقة وأبقه دافئاً بمعطف أو بطانية.",
+          "لا تعطه طعاماً أو شراباً. راقب تنفسه حتى وصول المساعدة."
+        ]
+      },
+      "warning": { "en": "", "ar": "" }
+    },
+    {
+      "id": "recovery",
+      "icon": "recovery",
+      "urgent": false,
+      "title": { "en": "Unconscious but breathing (recovery position)", "ar": "فاقد الوعي ويتنفس (وضعية الإفاقة)" },
+      "steps": {
+        "en": [
+          "Check that the person is breathing normally. If not, start CPR.",
+          "Kneel beside them. Place the arm nearest you at a right angle to the body.",
+          "Bring the far arm across the chest and hold the back of that hand against their near cheek.",
+          "Bend the far knee and roll the person toward you onto their side.",
+          "Tilt the head back slightly to keep the airway open.",
+          "Call emergency services and keep checking breathing until help arrives."
+        ],
+        "ar": [
+          "تأكد أن المصاب يتنفس بشكل طبيعي. إن لم يكن كذلك ابدأ الإنعاش القلبي الرئوي.",
+          "اركع بجانبه. ضع الذراع الأقرب إليك بزاوية قائمة مع الجسم.",
+          "اجلب الذراع البعيدة فوق الصدر وضع ظهر كفها على خده القريب منك.",
+          "اثنِ الركبة البعيدة ثم اقلبه نحوك على جنبه.",
+          "أمِل الرأس للخلف قليلاً لإبقاء مجرى الهواء مفتوحاً.",
+          "اتصل بالإسعاف وراقب التنفس باستمرار حتى وصول المساعدة."
+        ]
+      },
+      "warning": {
+        "en": "Suspected spinal injury: avoid moving the person unless the airway is blocked.",
+        "ar": "اشتباه إصابة العمود الفقري: تجنب تحريك المصاب إلا إذا كان مجرى الهواء مسدوداً."
+      }
+    },
+    {
+      "id": "smoke",
+      "icon": "poison",
+      "urgent": true,
+      "title": { "en": "Poisoning, smoke or gas", "ar": "تسمم أو دخان أو غاز" },
+      "steps": {
+        "en": [
+          "Get yourself and the person to fresh air only if it is safe for you to do so.",
+          "Call emergency services or your local poison centre.",
+          "Do not make the person vomit.",
+          "Keep the container, label or substance so medical staff can identify it.",
+          "If the person is unconscious and breathing, place them in the recovery position. If not breathing, start CPR.",
+          "For skin or eye contact with chemicals, rinse with plenty of clean water for at least 15 to 20 minutes."
+        ],
+        "ar": [
+          "انقل نفسك والمصاب إلى الهواء النقي فقط إذا كان ذلك آمناً لك.",
+          "اتصل بالإسعاف أو بمركز السموم المحلي.",
+          "لا تجعل المصاب يتقيأ.",
+          "احتفظ بالعبوة أو الملصق أو المادة ليتعرف عليها الطاقم الطبي.",
+          "إذا كان فاقد الوعي ويتنفس ضعه في وضعية الإفاقة. وإذا لم يتنفس ابدأ الإنعاش القلبي الرئوي.",
+          "عند ملامسة المواد الكيميائية للجلد أو العين اغسل بكمية كبيرة من الماء النظيف لمدة 15 إلى 20 دقيقة على الأقل."
+        ]
+      },
+      "warning": {
+        "en": "Do not enter a smoky or gas-filled space to rescue someone. Wait for professionals.",
+        "ar": "لا تدخل مكاناً مليئاً بالدخان أو الغاز لإنقاذ أحد. انتظر المختصين."
+      }
+    },
+    {
+      "id": "wound",
+      "icon": "wound",
+      "urgent": false,
+      "title": { "en": "Cuts and minor wounds", "ar": "جروح وقطوع بسيطة" },
+      "steps": {
+        "en": [
+          "Wash your hands, or wear gloves if you have them.",
+          "Stop bleeding by pressing with a clean cloth for several minutes.",
+          "Rinse the wound with clean running water. Remove loose dirt.",
+          "Cover with a clean dressing or bandage. Change it daily or when wet or dirty.",
+          "Watch for infection: spreading redness, swelling, pus, fever, worsening pain. Get medical help if these appear.",
+          "Deep wounds, animal bites and dirty wounds need medical care."
+        ],
+        "ar": [
+          "اغسل يديك أو ارتدِ قفازات إن توفرت.",
+          "أوقف النزيف بالضغط بقماشة نظيفة لعدة دقائق.",
+          "اشطف الجرح بماء جارٍ نظيف وأزل الأوساخ السائبة.",
+          "غطِّه بضمادة أو رباط نظيف. غيّره يومياً أو عند البلل أو الاتساخ.",
+          "راقب علامات العدوى: احمرار ينتشر، تورم، صديد، حمى، ألم يزداد. اطلب مساعدة طبية عند ظهورها.",
+          "الجروح العميقة وعضات الحيوانات والجروح الملوثة تحتاج رعاية طبية."
+        ]
+      },
+      "warning": { "en": "", "ar": "" }
+    }
+  ]
+}

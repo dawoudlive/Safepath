@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "books": [
+    {
+      "id": "gobag",
+      "title": { "en": "Emergency go-bag checklist", "ar": "قائمة حقيبة الطوارئ" },
+      "summary": { "en": "What to keep ready if you must leave quickly", "ar": "ما يجب تجهيزه إذا اضطررت للمغادرة بسرعة" },
+      "sections": [
+        {
+          "heading": { "en": "Documents and money", "ar": "الوثائق والمال" },
+          "items": {
+            "en": [
+              "Copies of ID, passport, residency and family documents (paper and photo)",
+              "Some cash in small notes",
+              "List of emergency phone numbers written on paper"
+            ],
+            "ar": [
+              "نسخ من الهوية وجواز السفر والإقامة ووثائق العائلة (ورقية وصور)",
+              "بعض النقود بفئات صغيرة",
+              "قائمة بأرقام الطوارئ مكتوبة على ورقة"
+            ]
+          }
+        },
+        {
+          "heading": { "en": "Health and hygiene", "ar": "الصحة والنظافة" },
+          "items": {
+            "en": [
+              "First aid kit, personal medicines for at least a week, and prescriptions",
+              "Soap, toothbrush, wipes, masks",
+              "Any glasses or medical devices you rely on"
+            ],
+            "ar": [
+              "حقيبة إسعافات أولية وأدويتك الشخصية لأسبوع على الأقل مع الوصفات الطبية",
+              "صابون وفرشاة أسنان ومناديل وكمامات",
+              "النظارات أو الأجهزة الطبية التي تعتمد عليها"
+            ]
+          }
+        },
+        {
+          "heading": { "en": "Power and communication", "ar": "الطاقة والاتصال" },
+          "items": {
+            "en": [
+              "Fully charged power bank and charging cables",
+              "Torch or headlamp with spare batteries",
+              "Battery or hand-crank radio if you can",
+              "Whistle"
+            ],
+            "ar": [
+              "شاحن متنقل مشحون بالكامل وكوابل الشحن",
+              "كشاف أو مصباح رأس مع بطاريات احتياطية",
+              "راديو يعمل بالبطارية أو بالتدوير اليدوي إن أمكن",
+              "صافرة"
+            ]
+          }
+        },
+        {
+          "heading": { "en": "Food, water, warmth", "ar": "الطعام والماء والدفء" },
+          "items": {
+            "en": [
+              "Water: plan about 3 litres per person per day",
+              "Ready-to-eat food that needs no cooking (dates, nuts, canned food, bars)",
+              "Light blanket and a change of clothes"
+            ],
+            "ar": [
+              "الماء: خطط لنحو 3 لترات للشخص يومياً",
+              "طعام جاهز لا يحتاج طبخاً (تمر ومكسرات وعلب ومعجنات طاقة)",
+              "بطانية خفيفة وملابس بديلة"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "water",
+      "title": { "en": "Safe drinking water", "ar": "مياه الشرب الآمنة" },
+      "summary": { "en": "Store, purify and ration water", "ar": "تخزين المياه وتنقيتها وترشيدها" },
+      "sections": [
+        {
+          "heading": { "en": "Storing", "ar": "التخزين" },
+          "items": {
+            "en": [
+              "Store in clean, sealed food-grade containers, away from sunlight and heat.",
+              "Plan about 3 litres per person per day for drinking and basic hygiene. Increase in hot weather."
+            ],
+            "ar": [
+              "خزّن الماء في حاويات نظيفة محكمة صالحة للطعام بعيداً عن الشمس والحرارة.",
+              "خطط لنحو 3 لترات للشخص يومياً للشرب والنظافة الأساسية. زد الكمية في الطقس الحار."
+            ]
+          }
+        },
+        {
+          "heading": { "en": "Making water safer", "ar": "جعل الماء أكثر أماناً" },
+          "items": {
+            "en": [
+              "If water looks cloudy, let it settle and pour it through a clean cloth first.",
+              "Boil at a rolling boil for at least 1 minute, then let it cool covered.",
+              "If you cannot boil, use purification tablets and follow the packet instructions.",
+              "Do not drink water that smells of fuel or chemicals, or from flooded sewage areas."
+            ],
+            "ar": [
+              "إذا كان الماء عكراً فاتركه يترسب ثم صفِّه عبر قماش نظيف أولاً.",
+              "اغلِه غلياناً قوياً لمدة دقيقة على الأقل ثم اتركه يبرد وهو مغطى.",
+              "إذا لم تستطع الغلي فاستخدم أقراص التنقية واتبع تعليمات العبوة.",
+              "لا تشرب ماء رائحته وقود أو مواد كيميائية أو من مناطق فيضان الصرف الصحي."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "shelter",
+      "title": { "en": "Staying safe at home during an alert", "ar": "البقاء آمناً في المنزل أثناء الإنذار" },
+      "summary": { "en": "General safety steps when there is a threat nearby", "ar": "خطوات أمان عامة عند وجود خطر قريب" },
+      "sections": [
+        {
+          "heading": { "en": "General steps", "ar": "خطوات عامة" },
+          "items": {
+            "en": [
+              "Follow instructions from official authorities and civil defence first.",
+              "Go to the lowest interior room or the shelter area you identified, away from windows and glass.",
+              "Keep your phone charged and your go-bag by the door.",
+              "Agree a meeting point with family in case you are separated.",
+              "Know where the nearest hospital and shelter are, and save the route offline in the Maps screen while you have internet."
+            ],
+            "ar": [
+              "اتبع تعليمات الجهات الرسمية والدفاع المدني أولاً.",
+              "توجّه إلى أدنى غرفة داخلية أو منطقة الملجأ التي حددتها بعيداً عن النوافذ والزجاج.",
+              "أبقِ هاتفك مشحوناً وحقيبة الطوارئ عند الباب.",
+              "اتفق مع العائلة على نقطة تجمع تحسباً للتفرق.",
+              "اعرف أقرب مستشفى وملجأ، وافتح الخريطة وأنت متصل بالإنترنت ليتم حفظ المنطقة للاستخدام لاحقاً."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
